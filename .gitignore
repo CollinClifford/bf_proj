@@ -1,0 +1,23 @@
+# Python-specific
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+*.env
+
+# IDE-specific
+.vscode/
+.idea/
+
+# Miscellaneous
+*.pyc
+*.pyo
+*.pyd
+.DS_Store
+WIP/
+*.json
