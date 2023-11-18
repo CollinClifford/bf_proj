@@ -20,4 +20,3 @@ env/
 *.pyd
 .DS_Store
 WIP/
-*.json
