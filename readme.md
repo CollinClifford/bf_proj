@@ -87,6 +87,5 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
     - Execute the bash script:
     ```bash
     bash run.bash
-    - Alternatively, execute individual Python scripts based on your requirements.
 
 This setup ensures a seamless installation and execution of the Bigfoot Tracking and Analysis Project.
