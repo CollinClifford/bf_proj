@@ -20,3 +20,4 @@ env/
 *.pyd
 .DS_Store
 WIP/
+example.py

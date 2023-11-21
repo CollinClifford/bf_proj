@@ -1,5 +1,5 @@
 # Bigfoot Tracking and Analysis Project - Version 1.1
-![Patterson-Gimlin Bigfoot](./bfro/media/bf.jpeg)
+![Patterson-Gimlin Bigfoot](./media/bf.jpeg)
 
 ## Overview
 The Bigfoot Tracking and Analysis Project is an automated system designed to collect and analyze sightings of Bigfoot from the Bigfoot Field Researchers Organization (BFRO) website.
