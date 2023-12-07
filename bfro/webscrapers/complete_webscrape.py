@@ -5,5 +5,5 @@ from functions.scrape_all import scrape_all
 if __name__ == "__main__":
     try:
         scrape_all()
-    except Exception as e:
+    except Exception as e: 
         print(f"Error in main script: {e}")

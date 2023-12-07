@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import requests
-from bfro.webscrapers.functions.scrape_report import scrape_report
+from functions.scrape_report import scrape_report
 
 def scrape_city(city_url):
 

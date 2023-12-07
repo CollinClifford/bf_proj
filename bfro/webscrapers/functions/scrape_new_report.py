@@ -67,7 +67,7 @@ def scrape_site(site_url):
     # Finds the absolute path of bfro_data.json
     current_script_directory = os.path.dirname(os.path.abspath(__file__))
     project_directory = os.path.abspath(os.path.join(current_script_directory, '..', '..'))
-    json_file_path = os.path.join(project_directory, 'data/raw_data/bfro_data.json')
+    json_file_path = os.path.join(project_directory, 'data\\raw_data\\bfro_data.json')
 
     # Opens json
     with open(json_file_path, 'r') as file:
