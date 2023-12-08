@@ -6,11 +6,11 @@ current_directory = os.path.dirname(os.path.abspath(__file__))
 
 # Specify the paths to your scripts
 webscrape = os.path.join(current_directory, 'bfro/webscrapers/complete_webscrape.py')
-update_ws = os.path.join(current_directory, 'webscrapers/update_webscrape.py')
-clean = os.path.join(current_directory, 'cleaning_tools/clean_json.py')
-init_database = os.path.join(current_directory, 'data/initiate_db.py')
-update_db = os.path.join(current_directory, 'update_db.py')
-remove_local = os.path.join(current_directory, 'cleaning_tools/remove_local_files.py')
+update_ws = os.path.join(current_directory, 'bro/webscrapers/update_webscrape.py')
+clean = os.path.join(current_directory, 'bfro/cleaning_tools/clean_json.py')
+init_database = os.path.join(current_directory, 'bfro/data/initiate_db.py')
+update_db = os.path.join(current_directory, 'bfro/data/update_db.py')
+remove_local = os.path.join(current_directory, 'bfro/cleaning_tools/remove_local_files.py')
 
 try:
     subprocess.run(['python', webscrape])
