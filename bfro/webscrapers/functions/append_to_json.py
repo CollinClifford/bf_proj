@@ -11,8 +11,7 @@ def append_to_json(data):
     # Finds the absolute path for the JSON
     current_script_directory = os.path.dirname(os.path.abspath(__file__))
     project_directory = os.path.abspath(os.path.join(current_script_directory, '..', '..'))
-    # json_file_path = os.path.join(project_directory, 'data\\raw_data\\bfro_data.json')
-    json_file_path = r'c:\Users\User\OneDrive\Desktop\bf_proj\bfro\data\raw_data\bfro_data.json'
+    json_file_path = os.path.join(project_directory, 'data\\raw_data\\bfro_data.json')
     
     # Checks if json exists
     try:
