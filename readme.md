@@ -32,7 +32,7 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 - `bf_proj/bfro/webscrapers/functions/scrape_city.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_county.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_new_report.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_recent_sighting.py` -- Currently note used
+- `bf_proj/bfro/webscrapers/functions/scrape_recent_sighting.py` -- Currently not used
 - `bf_proj/bfro/webscrapers/functions/scrape_report.py`
 - `bf_proj/bfro/webscrapers/complete_webscrape.py`
 - `bf_proj/bfro/webscrapers/update_webscrape.py` -- Currently not used
