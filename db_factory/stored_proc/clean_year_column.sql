@@ -1,7 +1,3 @@
-----------------------
---cleaning year column--
-----------------------
-
 update reports
 set year =
 (

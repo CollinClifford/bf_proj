@@ -1,6 +1,3 @@
---------------------------------
---Cleaning Submitted by column--
---------------------------------
 update
   reports
 set

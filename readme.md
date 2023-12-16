@@ -60,6 +60,7 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 - `dotenv`
 
 ## Workflow
+![version 1.2 architecture](./media/version_one_architecture.jpg)
 1. **Initializes Database:**
     - Drops database in ElephantSQL if it exists and creates new one.
 2. **Web Scraping:**
