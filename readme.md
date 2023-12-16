@@ -1,3 +1,5 @@
+# This README is not up to date 12/15/2023
+
 # Bigfoot Tracking and Analysis Project - Version 1.1
 ![Patterson-Gimlin Bigfoot](./media/bf.jpeg)
 
