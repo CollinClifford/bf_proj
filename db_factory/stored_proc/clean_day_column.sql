@@ -1,5 +1,3 @@
---TODO: Fix this script 
-
 alter table reports add day_of_week VARCHAR(22);
 
 update reports

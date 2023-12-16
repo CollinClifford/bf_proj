@@ -1,6 +1,6 @@
-# This README is not up to date 12/15/2023
+#### Updated 12/16/2023
 
-# Bigfoot Tracking and Analysis Project - Version 1.1
+# Bigfoot Tracking and Analysis Project - Version 1.2
 ![Patterson-Gimlin Bigfoot](./media/bf.jpeg)
 
 ## Overview
@@ -11,30 +11,46 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 - Runs webscraping tools
 - Cleans columns of unwanted keys from the webscraping process
 - Inserts json data into PostgreSQL databse
+## Version 1.2
+- Introduction of new main script that replaces original bash script
+- Removed scraping recent sightings, may add again in future but currently the project drops the whole database every time it runs.
+- Removes local files after uploading to database
 
 ## Components
 ### File Structure
 - `bf_proj/bfro/cleaning_tools/clean_json.py`
-- `bf_proj/bfro/data/clean_data/cleaned_columns_bfro_data.json`
-- `bf_proj/bfro/data/raw_data/bfro_data.json`
+- `bf_proj/bfro/data/clean_data/`
+- `bf_proj/bfro/data/raw_data/`
 - `bf_proj/bfro/data/sql_commands/create_table.py`
 - `bf_proj/bfro/data/sql_commands/insert_data.py`
 - `bf_proj/bfro/data/sql_commands/select_all.py`
 - `bf_proj/bfro/data/initiate_db.py`
-- `bf_proj/bfro/data/update_db.py`
+- `bf_proj/bfro/data/remove_local_files.py`
+- `bf_proj/bfro/data/update_db.py` -- Currently not used
 - `bf_proj/bfro/webscrapers/functions/append_to_json.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_all.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_city.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_county.py`
 - `bf_proj/bfro/webscrapers/functions/scrape_new_report.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_recent_sighting.py`
+- `bf_proj/bfro/webscrapers/functions/scrape_recent_sighting.py` -- Currently note used
 - `bf_proj/bfro/webscrapers/functions/scrape_report.py`
 - `bf_proj/bfro/webscrapers/complete_webscrape.py`
-- `bf_proj/bfro/webscrapers/update_webscrape.py`
+- `bf_proj/bfro/webscrapers/update_webscrape.py` -- Currently not used
+- `bf_proj/bfro/db_factory/scripts/main.py` -- Currently not used
+- `bf_proj/bfro/db_factory/stored_proc/clean_date_column.sql`
+- `bf_proj/bfro/db_factory/stored_proc/clean_day_column.sql`
+- `bf_proj/bfro/db_factory/stored_proc/clean_follow_up_column.sql`
+- `bf_proj/bfro/db_factory/stored_proc/clean_month_number_column.sql`
+- `bf_proj/bfro/db_factory/stored_proc/clean_season_column.sql`
+- `bf_proj/bfro/db_factory/stored_proc/clean_submitted_by_column.py`
+- `bf_proj/bfro/db_factory/stored_proc/clean_year_column.sql`
+- `bf_proj/bfro/media/bf.jpeg`
+- `bf_proj/.env` - User needs to add
 - `bf_proj/.gitignore`
+- `bf_proj/main.py`
 - `bf_proj/readme.md`
 - `bf_proj/requirements.txt`
-- `bf_proj/run.bash`
+
 ### Packages Used
 - `json`
 - `os`
@@ -44,23 +60,26 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 - `dotenv`
 
 ## Workflow
-1. **Database Check:**
-    - The project checks if the database exists in the ElephantSQL instance.
+1. **Initializes Database:**
+    - Drops database in ElephantSQL if it exists and creates new one.
 2. **Web Scraping:**
-    - If the database doesn't exist, `complete_webscrape.py` is executed, scraping the entire BFRO website and returning information on Bigfoot sightings in every US county.
-    - If the database exists, `update_webscrape.py` is executed. This script browses recent reports, checks for the report_number in the database, and appends new reports.
+    - runs `complete_webscrape.py`
 3. **Clean Data:**
     - Cleans unwanted columns
+    - Slight formatting
 4. **Updates Database:**
-    - Checks to see if reports exist in database, inserts if not.
+    - Uploads cleaned json to ElephantSQL hosted database
+5. **Drops local files**
+    - Removes all local files to keep a clean workspace
 
 ## Release Plan
 - **Version 1.2:**
-    - Clean Year and Date columns.
-- **Version 1.3:**
+    - Clean year and date column.
     - Clean submitted_by column.
-- **Version 1.4:**
-    - Clean state, county, nearest_town columns.
+    - Clean follow_up colum.
+- **Version 1.3:**
+    - Automate SQL Stored Procedures using python script
+    - Clean nearest_town columns.
 
 ## Installation and Execution
 *Note:* This project uses python3.
@@ -84,6 +103,6 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 4. **Run the Program:**
     - Execute the bash script:
     ```bash
-    bash run.bash
+    python3 ./main.py
 
-This setup ensures a seamless installation and execution of the Bigfoot Tracking and Analysis Project.
+This setup should ensure a seamless installation and execution of the Bigfoot Tracking and Analysis Project.  Please reach out to *collinclifford@ymail.com* for any questions.
