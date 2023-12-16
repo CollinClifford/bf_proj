@@ -4,17 +4,17 @@
 ![Patterson-Gimlin Bigfoot](./media/bf.jpeg)
 
 ## Overview
-The Bigfoot Tracking and Analysis Project is an automated system designed to collect and analyze sightings of Bigfoot from the Bigfoot Field Researchers Organization (BFRO) website.
+The Bigfoot Tracking and Analysis Project is an automated system designed to collect and analyze sightings of Bigfoot from the Bigfoot Field Researchers Organization (BFRO) website.  
 
+## Version 1.2
+- Introduction of new main script that replaces original bash script
+- Removed scraping recent sightings, may add again in future but currently the project drops the whole database every time it runs.
+- Removes local files after uploading to database
 ## Version 1.1
 - Determines whether the entire website should be scraped or only the recent sightings
 - Runs webscraping tools
 - Cleans columns of unwanted keys from the webscraping process
 - Inserts json data into PostgreSQL databse
-## Version 1.2
-- Introduction of new main script that replaces original bash script
-- Removed scraping recent sightings, may add again in future but currently the project drops the whole database every time it runs.
-- Removes local files after uploading to database
 
 ## Components
 ### File Structure
@@ -45,7 +45,7 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 - `bf_proj/bfro/db_factory/stored_proc/clean_submitted_by_column.py`
 - `bf_proj/bfro/db_factory/stored_proc/clean_year_column.sql`
 - `bf_proj/bfro/media/bf.jpeg`
-- `bf_proj/.env` - User needs to add
+- `bf_proj/.env` - **User needs to add**
 - `bf_proj/.gitignore`
 - `bf_proj/main.py`
 - `bf_proj/readme.md`
