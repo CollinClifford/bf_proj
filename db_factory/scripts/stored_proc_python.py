@@ -1369,33 +1369,46 @@ where
 """
 
 remove_comma="""
-update
-  reports
-set
-  submitted_by_date = substring(
-    submitted_by_date,
-    CHARINDEX(', ', submitted_by_date) + 2,
-    LEN(submitted_by_date)
-  );
+UPDATE reports
+SET submitted_by_date = SUBSTRING(submitted_by_date FROM POSITION(', ' IN submitted_by_date) + 2);
 """
 
-set_date="""
-update
-  reports
-set
-  submitted_by_date = to_char(
-    to_date(
-      trim(
-        both ' .'
-        from
-          trim(split_part(submitted_by_date, ',', 2)) || trim(split_part(submitted_by_date, ',', 3)),
-          'Month DD YYYY'
-      ),
-      'MM/DD/YYYY'
-    )
-    where
-      submitted_by_date like '%,%';
-"""
+# set_date="""
+# UPDATE reports
+# SET submitted_by_date = CASE
+#     WHEN submitted_by_date ~ '[a-zA-Z]' THEN
+#         TO_CHAR(
+#             TO_DATE(
+#                 REGEXP_REPLACE(
+#                     TRIM(BOTH ' .' FROM regexp_replace(submitted_by_date::text, E'[[:cntrl:]]', '', 'g')),
+#                     E'[^\x20-\x7E]+',
+#                     '',
+#                     'g'
+#                 ),
+#                 'FMDay, Month DD, YYYY'
+#             ),
+#             'MM/DD/YYYY'
+#         )
+#     ELSE
+#         TO_CHAR(
+#             TO_DATE(
+#                 COALESCE(
+#                     NULLIF(
+#                         TRIM(BOTH ' .' FROM TRIM(SPLIT_PART(submitted_by_date, ',', 2)) || TRIM(SPLIT_PART(submitted_by_date, ',', 3))),
+#                         ''
+#                     ),
+#                     'Unknown Date'
+#                 ),
+#                 'Month DD YYYY'
+#             ),
+#             'MM/DD/YYYY'
+#         )
+# END
+# WHERE submitted_by_date LIKE '%,%' OR submitted_by_date ~ '[a-zA-Z]';
+
+# """
+
+
 
 set_month="""
 update
@@ -1415,8 +1428,15 @@ set
       when submitted_by_date like '%October%' then replace(submitted_by_date, 'October', '10')
       when submitted_by_date like '%November%' then REPLACE(submitted_by_date, 'November', '11')
       when submitted_by_date like '%December%' then replace(submitted_by_date, 'December', '12')
+      else null
     end
   );
+"""
+
+update_date = """
+UPDATE reports
+SET submitted_by_date = TRIM('/' FROM REGEXP_REPLACE(submitted_by_date, '[^0-9]+', '/', 'g'));
+
 """
 
 formate_date="""

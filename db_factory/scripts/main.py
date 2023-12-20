@@ -29,10 +29,10 @@ def main():
         clean_day_column,
         change_date_to_day,
         add_date_column,
+        add_month_number_column,
         format_date,
         update_follow_up_one,
         update_follow_up_two,
-        add_month_number_column,
         set_month_number_column,
         update_seasons_column,
         remove_submitted,
@@ -41,8 +41,9 @@ def main():
         add_submitted_by_date,
         remove_on,
         remove_comma,
-        set_date,
+        # set_date,
         set_month,
+        update_date,
         formate_date,
         clean_year,
         trim_year
@@ -54,7 +55,11 @@ def main():
         cursor = conn.cursor()
 
         for proc in proc_array:
-            cursor.execute(proc)
+            try:
+                # print(proc)
+                cursor.execute(proc)
+            except Exception as e:
+                print(f"Error occured: {e}")
 
         conn.commit()
         conn.close()
