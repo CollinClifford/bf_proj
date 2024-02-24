@@ -1,14 +1,17 @@
 # README Out of date since code reformat.
 
 
-#### Updated 12/16/2023
+#### Updated 2/23/2024
 
-# Bigfoot Tracking and Analysis Project - Version 1.2
+# Bigfoot Tracking and Analysis Project - Version 1.3
 ![Patterson-Gimlin Bigfoot](./media/bf.jpeg)
 
 ## Overview
 The Bigfoot Tracking and Analysis Project is an automated system designed to collect and analyze sightings of Bigfoot from the Bigfoot Field Researchers Organization (BFRO) website.  
 
+## Version 1.3
+- Major restructure of files.  Easier to understand.
+- inserted error handling.
 ## Version 1.2
 - Introduction of new main script that replaces original bash script
 - Removed scraping recent sightings, may add again in future but currently the project drops the whole database every time it runs.
@@ -21,43 +24,19 @@ The Bigfoot Tracking and Analysis Project is an automated system designed to col
 
 ## Components
 ### File Structure
-- `bf_proj/bfro/cleaning_tools/clean_json.py`
-- `bf_proj/bfro/data/clean_data/`
-- `bf_proj/bfro/data/raw_data/`
-- `bf_proj/bfro/data/sql_commands/create_table.py`
-- `bf_proj/bfro/data/sql_commands/insert_data.py`
-- `bf_proj/bfro/data/sql_commands/select_all.py`
-- `bf_proj/bfro/data/initiate_db.py`
-- `bf_proj/bfro/data/remove_local_files.py`
-- `bf_proj/bfro/data/update_db.py` -- Currently not used
-- `bf_proj/bfro/webscrapers/functions/append_to_json.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_all.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_city.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_county.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_new_report.py`
-- `bf_proj/bfro/webscrapers/functions/scrape_recent_sighting.py` -- Currently not used
-- `bf_proj/bfro/webscrapers/functions/scrape_report.py`
-- `bf_proj/bfro/webscrapers/complete_webscrape.py`
-- `bf_proj/bfro/webscrapers/update_webscrape.py` -- Currently not used
-- `bf_proj/bfro/db_factory/scripts/main.py` -- Currently not used
-- `bf_proj/bfro/db_factory/stored_proc/clean_date_column.sql`
-- `bf_proj/bfro/db_factory/stored_proc/clean_day_column.sql`
-- `bf_proj/bfro/db_factory/stored_proc/clean_follow_up_column.sql`
-- `bf_proj/bfro/db_factory/stored_proc/clean_month_number_column.sql`
-- `bf_proj/bfro/db_factory/stored_proc/clean_season_column.sql`
-- `bf_proj/bfro/db_factory/stored_proc/clean_submitted_by_column.py`
-- `bf_proj/bfro/db_factory/stored_proc/clean_year_column.sql`
-- `bf_proj/bfro/media/bf.jpeg`
-- `bf_proj/.env` - **User needs to add**
-- `bf_proj/.gitignore`
-- `bf_proj/main.py`
-- `bf_proj/readme.md`
-- `bf_proj/requirements.txt`
+- `bigfoot_factory/sql_commands/create_table.py`
+- `bigfoot_factory/sql_commands/insert_data.py`
+- `bigfoot_factory/sql_commands/stored_proc_python.py`
+- `bigfoot_factory/clean_db.py`
+- `bigfoot_factory/db_check.py`
+- `bigfoot_factory/initiate_db.py`
+- `bigfoot_factory/update_db.py`
+- `datalake/bfro_data.json`
+- `datalake/cleaned_columns_bfro_data.json`
+- `media/`
+- `webscrapers/`
 
 ### Packages Used
-- `json`
-- `os`
-- `requests`
 - `beautifulsoup`
 - `psycopg2`
 - `dotenv`

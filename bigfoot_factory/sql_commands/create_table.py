@@ -29,3 +29,15 @@ def create_table(cursor):
 
     # Creates table
     cursor.execute(create_table_query)
+
+def create_location_table(cursor):
+    create_table_query = """
+    CREATE TABLE IF NOT EXISTS lat_long (
+        county TEXT,
+        state TEXT,
+        latitude TEXT,
+        longitude TEXT
+    );
+    """
+    # Creates table
+    cursor.execute(create_table_query)
