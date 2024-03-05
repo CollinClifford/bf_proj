@@ -75,9 +75,7 @@ def scrape_site(site_url):
 
     # Searches for report number in existing data and inserts report if it does not exist
     existing_report_numbers = [item.get('report_number') for item in existing_data]
-
     if report_data['report_number'] not in existing_report_numbers:
-        
         # Calls the append_to_json function
         try:
             append_to_json(report_data)

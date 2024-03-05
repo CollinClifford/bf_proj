@@ -36,7 +36,7 @@ try:
         else:
             subprocess.run(['python', update_ws])
             subprocess.run(['python', clean])
-            subprocess.run(['python', update_db])
+            subprocess.run(['python', init_database]) # subprocess.run(['python', update_db])
             subprocess.run(['python', clean_db])
             print("Database updated")
     else:

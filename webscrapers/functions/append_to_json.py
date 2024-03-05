@@ -24,12 +24,12 @@ def append_to_json(data):
 
     # Appends all reports from webscraper.
     if data:
-        if data['report_number'] not in existing_report_numbers:
-            try:
-                with open(json_file_path, 'w', encoding='utf-8') as file:
-                    json.dump(existing_data, file, indent=2)
-            except Exception as e:
-                print(f'{data['report_number']} failed: {e}.')
+
+        try:
+            with open(json_file_path, 'w', encoding='utf-8') as file:
+                json.dump(existing_data, file, indent=2)
+        except Exception as e:
+            print(f'{data['report_number']} failed: {e}.')
     else:
         print('Nothing to append.')
 

@@ -5,6 +5,7 @@ from dotenv import load_dotenv
 import os
 from sql_commands.create_table import *
 from sql_commands.insert_data import *
+from sql_commands.create_reports_ll_vw import *
 
 def main():
 
@@ -42,7 +43,8 @@ def main():
         cursor = conn.cursor()
 
         # Drops table for clean up but it shouldn't exist
-        try: 
+        try:
+            cursor.execute('DROP VIEW IF EXISTS reports_ll_vw;') 
             cursor.execute('DROP TABLE IF EXISTS reports;')
             cursor.execute('DROP TABLE IF EXISTS lat_long;')
         except Exception as e:
@@ -51,6 +53,7 @@ def main():
         try:
             create_table(cursor)
             create_location_table(cursor)
+            create_reports_ll_vw(cursor)
         except:
             print(f'create_table failed.')
         # Inserts each record
